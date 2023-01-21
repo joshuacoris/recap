@@ -617,7 +617,7 @@
 <p>Recaps <code>recap catalog</code> command reads metadata Recap's data catalog. List the catalog's directory structure with <code>recap list</code>, read metadata from a directory with <code>recap read</code>, and search with <code>recap search</code>.</p>
 <h3 id="search">Search<a class="headerlink" href="#search" title="Permanent link">&para;</a></h3>
 <p>Recap's search syntax depends on the <a href="../catalogs/">Catalog</a> plugin that's used. As mentioned in the <a href="../quickstart/">Quickstart</a>, Recap stores its metadata in <a href="https://www.sqlite.org/">SQLite</a> by default. You can use SQLite's <a href="https://www.sqlite.org/json1.html#the_json_extract_function">json_extract syntax</a> to search the catalog:</p>
-<div class="codehilite"><pre><span></span><code>recap catalog search &quot;json_extract(metadata, &#39;$.location.table&#39;) = &#39;some_table&#39;&quot;
+<div class="codehilite"><pre><span></span><code>recap catalog search &quot;json_extract(metadata, &#39;$.\&quot;db.location\&quot;.table&#39;) = &#39;some_table&#39;&quot;
 </code></pre></div>
 
 <p>The database file defaults to <code>~/.recap/catalog/recap.db</code>, if you wish to open a SQLite client directly.</p>
