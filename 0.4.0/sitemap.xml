@@ -55,4 +55,34 @@
          <lastmod>2023-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
+    <url>
+         <loc>https://docs.recap.cloud/0.4.0/api-ref/recap.analyzers/</loc>
+         <lastmod>2023-01-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.recap.cloud/0.4.0/api-ref/recap.browsers/</loc>
+         <lastmod>2023-01-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.recap.cloud/0.4.0/api-ref/recap.catalogs/</loc>
+         <lastmod>2023-01-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.recap.cloud/0.4.0/api-ref/recap.crawler/</loc>
+         <lastmod>2023-01-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.recap.cloud/0.4.0/api-ref/recap.paths/</loc>
+         <lastmod>2023-01-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.recap.cloud/0.4.0/api-ref/recap.routers/</loc>
+         <lastmod>2023-01-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
 </urlset>
