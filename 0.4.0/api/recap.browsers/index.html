@@ -1,0 +1,1594 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Dead Simple Data Catalog for Engineers">
+      
+      
+        <meta name="author" content="Chris Riccomini">
+      
+      
+        <link rel="canonical" href="https://docs.recap.cloud/0.4.0/api/recap.browsers/">
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>recap.browsers - Recap</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#recap.browsers.abstract" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Recap" class="md-header__button md-logo" aria-label="Recap" data-md-component="logo">
+      
+  <img src="../../img/recap-logo-square.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Recap
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              recap.browsers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/recap-cloud/recap" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    recap-cloud/recap
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Recap" class="md-nav__button md-logo" aria-label="Recap" data-md-component="logo">
+      
+  <img src="../../img/recap-logo-square.png" alt="logo">
+
+    </a>
+    Recap
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/recap-cloud/recap" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    recap-cloud/recap
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        Quickstart
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/plugins/" class="md-nav__link">
+        Plugins
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Python API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recap.analyzers/" class="md-nav__link">
+        recap.analyzers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          recap.browsers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        recap.browsers
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recap.browsers.abstract" class="md-nav__link">
+    abstract
+  </a>
+  
+    <nav class="md-nav" aria-label="abstract">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recap.browsers.abstract.AbstractBrowser" class="md-nav__link">
+    AbstractBrowser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap.browsers.analyzing" class="md-nav__link">
+    analyzing
+  </a>
+  
+    <nav class="md-nav" aria-label="analyzing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recap.browsers.analyzing.AnalyzingBrowser" class="md-nav__link">
+    AnalyzingBrowser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recap.browsers.analyzing.create_browser" class="md-nav__link">
+    create_browser()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap.browsers.db" class="md-nav__link">
+    db
+  </a>
+  
+    <nav class="md-nav" aria-label="db">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recap.browsers.db.DatabaseBrowser" class="md-nav__link">
+    DatabaseBrowser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap.browsers.fs" class="md-nav__link">
+    fs
+  </a>
+  
+    <nav class="md-nav" aria-label="fs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recap.browsers.fs.FilesystemBrowser" class="md-nav__link">
+    FilesystemBrowser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recap.browsers.fs.create_browser" class="md-nav__link">
+    create_browser()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recap.catalogs/" class="md-nav__link">
+        recap.catalogs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recap.crawler/" class="md-nav__link">
+        recap.crawler
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recap.paths/" class="md-nav__link">
+        recap.paths
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rest/" class="md-nav__link">
+        REST API
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/" class="md-nav__link">
+        Recap CLI
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recap.browsers.abstract" class="md-nav__link">
+    abstract
+  </a>
+  
+    <nav class="md-nav" aria-label="abstract">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recap.browsers.abstract.AbstractBrowser" class="md-nav__link">
+    AbstractBrowser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap.browsers.analyzing" class="md-nav__link">
+    analyzing
+  </a>
+  
+    <nav class="md-nav" aria-label="analyzing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recap.browsers.analyzing.AnalyzingBrowser" class="md-nav__link">
+    AnalyzingBrowser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recap.browsers.analyzing.create_browser" class="md-nav__link">
+    create_browser()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap.browsers.db" class="md-nav__link">
+    db
+  </a>
+  
+    <nav class="md-nav" aria-label="db">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recap.browsers.db.DatabaseBrowser" class="md-nav__link">
+    DatabaseBrowser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap.browsers.fs" class="md-nav__link">
+    fs
+  </a>
+  
+    <nav class="md-nav" aria-label="fs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recap.browsers.fs.FilesystemBrowser" class="md-nav__link">
+    FilesystemBrowser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recap.browsers.fs.create_browser" class="md-nav__link">
+    create_browser()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/recap-cloud/recap/tree/main/docs/api/recap.browsers.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  <h1>recap.browsers</h1>
+
+<div class="doc doc-object doc-module">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>Different data infrastructure have different types of objects (tables, columns,
+files, topics, partitions, and so on).</p>
+<p>Recap uses a browser abstraction map infrastructure objects into a standard
+directory format. A different browser is used for each type of infrastructure.
+Browsers do not actually analyze a system's data for metadata; they simply show
+what's available.</p>
+<p>Recap comes with a database browser and a filesystem browser. Other browsers
+can be implemented and added as plugins.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="recap.browsers.abstract" class="doc doc-heading">
+          <code>abstract</code>
+
+
+<a href="#recap.browsers.abstract" class="headerlink" title="Permanent link">&para;</a></h2>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="recap.browsers.abstract.AbstractBrowser" class="doc doc-heading">
+        <code>AbstractBrowser</code>
+
+
+<a href="#recap.browsers.abstract.AbstractBrowser" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="abc.ABC">ABC</span></code></p>
+
+  
+      <p>The abstract class for all browsers. Recap uses a browser abstraction to
+deal with different data infrastructure in a standard way.</p>
+<p>Browsers map infrastructure objects into a directory format. A different
+browser is used for each type of infrastructure.</p>
+<p>A DatabaseBrowser might list directories like this:</p>
+<div class="codehilite"><pre><span></span><code>/schemas
+/schemas/public
+/schemas/public/tables
+/schemas/public/tables/groups
+/schemas/public/tables/users
+</code></pre></div>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="recap.browsers.abstract.AbstractBrowser.children" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">children</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-abstractmethod"><code>abstractmethod</code></small>
+  </span>
+
+<a href="#recap.browsers.abstract.AbstractBrowser.children" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Given a path, returns its children. Using the example above,
+path=/schemas/public/tables would return:</p>
+<div class="codehilite"><pre><span></span><code>[
+    TablePath(
+        schema=&#39;public&#39;,
+        table=&#39;groups&#39;,
+    ),
+    TablePath(
+        schema=&#39;public&#39;,
+        table=&#39;users&#39;,
+    ),
+]
+</code></pre></div>
+
+<p>The path parameter is relative; it does not include the browser's root.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="recap.browsers.abstract.AbstractBrowser.root" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">root</span><span class="p">()</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-abstractmethod"><code>abstractmethod</code></small>
+  </span>
+
+<a href="#recap.browsers.abstract.AbstractBrowser.root" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>The root path for this browser. The root path is prefixed to all
+paths when persisting metdata to a catalog.</p>
+<p>Using the example above, root might return something like:</p>
+<div class="codehilite"><pre><span></span><code>/databases/postgresql/instances/prd-db
+</code></pre></div>
+
+<p>Thus, the full catalog path for the <code>users</code> table would be:</p>
+<div class="codehilite"><pre><span></span><code>/databases/postgresql/instances/prd-db/schemas/public/tables/users
+</code></pre></div>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="recap.browsers.analyzing" class="doc doc-heading">
+          <code>analyzing</code>
+
+
+<a href="#recap.browsers.analyzing" class="headerlink" title="Permanent link">&para;</a></h2>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="recap.browsers.analyzing.AnalyzingBrowser" class="doc doc-heading">
+        <code>AnalyzingBrowser</code>
+
+
+<a href="#recap.browsers.analyzing.AnalyzingBrowser" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="recap.browsers.abstract.AbstractBrowser" href="#recap.browsers.abstract.AbstractBrowser">AbstractBrowser</a></code></p>
+
+  
+      <p>A special browser that ties an AbstractBrowser together with its compatible
+AbstractAnalyzers. Browsers and analyzers are deliberately unaware of one
+another, but something has to tie them together. That's this class.</p>
+<p>AnalyzingBrowser takes in a browser and its compatible analyzers. It
+provides all of the same functionality as the wrapped browser, but it also
+exposes an <code>analyze()</code> method, which runs all analyzers on a path and
+returns the analyzed metadata.</p>
+<p>This browser is deliberately not added to Recap's browser plugin
+entrypoint. It's more of a utility class for the CLI and crawler.</p>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="recap.browsers.analyzing.create_browser" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">create_browser</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span></code>
+
+<a href="#recap.browsers.analyzing.create_browser" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Create an AnalyzingBrowser that wraps an AbstractBrowser and
+AbstractAnalyzers that are compatible with the browser's child
+CatalogPaths.</p>
+<p>Note that the <code>plugin</code> config is currently ignored. This method simply
+searches for the first AbstractBrowser that doesn't throw an exception when
+its <code>create_browser</code> method is called.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>config</code></td>
+          <td>
+          </td>
+          <td><p>A **kwargs config for the browser to wrap.</p></td>
+          <td>
+                <code>{}</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="recap.browsers.db" class="doc doc-heading">
+          <code>db</code>
+
+
+<a href="#recap.browsers.db" class="headerlink" title="Permanent link">&para;</a></h2>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="recap.browsers.db.DatabaseBrowser" class="doc doc-heading">
+        <code>DatabaseBrowser</code>
+
+
+<a href="#recap.browsers.db.DatabaseBrowser" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="recap.browsers.abstract.AbstractBrowser" href="#recap.browsers.abstract.AbstractBrowser">AbstractBrowser</a></code></p>
+
+  
+      <p>A browser that lists database objects. DatabaseBrowser uses SQLAlchemy and
+its supported dialects (<a href="https://docs.sqlalchemy.org/en/14/dialects/">https://docs.sqlalchemy.org/en/14/dialects/</a>).</p>
+<p>DatabaseBrowser follows this directory sturcture:</p>
+<div class="codehilite"><pre><span></span><code>/databases/&lt;scheme&gt;/instances/&lt;instance&gt;/schemas/&lt;schema&gt;/tables/&lt;table&gt;
+/databases/&lt;scheme&gt;/instances/&lt;instance&gt;/schemas/&lt;schema&gt;/views/&lt;view&gt;
+</code></pre></div>
+
+<p>The scheme is derived from the DB URL (e.g.
+postgres://user:pass@localhost/my_db would have scheme="postgres"). The
+instance defaults to the hostname, but can be overridden via the <code>name</code>
+config. Schema is whatever SQLAlchemy returns from <code>get_schema_names</code>.
+Ditto for table and view.</p>
+<p>This model does not make the distinction between schemas and databases as
+defined in standard information_schema formats
+(<a href="https://en.wikipedia.org/wiki/Information_schema">https://en.wikipedia.org/wiki/Information_schema</a>). PostgreSQL, in
+particular, is a little weird because it has both (the schema is usually
+<code>public</code>).</p>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="recap.browsers.db.DatabaseBrowser.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">root_</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#recap.browsers.db.DatabaseBrowser.__init__" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>engine</code></td>
+          <td>
+                <code>sqlalchemy.<span title="sqlalchemy.engine">engine</span>.<span title="sqlalchemy.engine.Engine">Engine</span></code>
+          </td>
+          <td><p>SQLAlchemy engine to use when browsing the db.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>root_</code></td>
+          <td>
+                <code><span title="recap.browsers.db.DatabaseRootPath">DatabaseRootPath</span> | None</code>
+          </td>
+          <td><p>The root CatalogPath that represents this DB instance.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="recap.browsers.db.DatabaseBrowser.children" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">children</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></code>
+
+<a href="#recap.browsers.db.DatabaseBrowser.children" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>path</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>Path to list.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>list[<span title="recap.browsers.db.DatabaseBrowserPath">DatabaseBrowserPath</span>] | None</code>
+          </td>
+          <td><p>List of children for path, or None if path doesn't exist.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="recap.browsers.db.DatabaseBrowser.schemas" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">schemas</span><span class="p">()</span></code>
+
+<a href="#recap.browsers.db.DatabaseBrowser.schemas" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>list[str]</code>
+          </td>
+          <td><p>All schema names in a database. In PostgreSQL, this is usually just <code>public</code>. In MySQL and others, it's usually a list of all database names.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="recap.browsers.db.DatabaseBrowser.tables" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">tables</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span></code>
+
+<a href="#recap.browsers.db.DatabaseBrowser.tables" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>list[str]</code>
+          </td>
+          <td><p>All table names in a schema.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="recap.browsers.db.DatabaseBrowser.views" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">views</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span></code>
+
+<a href="#recap.browsers.db.DatabaseBrowser.views" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>list[str]</code>
+          </td>
+          <td><p>All view names in a schema.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="recap.browsers.fs" class="doc doc-heading">
+          <code>fs</code>
+
+
+<a href="#recap.browsers.fs" class="headerlink" title="Permanent link">&para;</a></h2>
+
+  <div class="doc doc-contents ">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="recap.browsers.fs.FilesystemBrowser" class="doc doc-heading">
+        <code>FilesystemBrowser</code>
+
+
+<a href="#recap.browsers.fs.FilesystemBrowser" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="recap.browsers.abstract.AbstractBrowser" href="#recap.browsers.abstract.AbstractBrowser">AbstractBrowser</a></code></p>
+
+  
+      <p>A browser that lists filesystem objects. FilesystemBrowser uses fsspec and
+its supported implementations
+(<a href="https://filesystem-spec.readthedocs.io/en/latest/api.html#built-in-implementations">https://filesystem-spec.readthedocs.io/en/latest/api.html#built-in-implementations</a>).</p>
+<p>FilesystemBrowser mirrors the directory structure in the filesystem.</p>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="recap.browsers.fs.create_browser" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">create_browser</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">storage_options</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">_</span><span class="p">)</span></code>
+
+<a href="#recap.browsers.fs.create_browser" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>url</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The URL to use for the filesystem. If the URL contains a path, the FilesystemBrowser will treat all paths relative to the URL path.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>name</code></td>
+          <td>
+                <code>str | None</code>
+          </td>
+          <td><p>The name to use in the FilesystemRootPath. If unspecified, the URL host is used (or 'localhost' for 'file' schemes).</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>storage_options</code></td>
+          <td>
+                <code>dict[str, <span title="typing.Any">Any</span>]</code>
+          </td>
+          <td><p>Storage options **kwargs to pass on to the fsspec filesystem constructor.</p></td>
+          <td>
+                <code>{}</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+  </div>
+
+  </div>
+
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2023-01-31
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../recap.analyzers/" class="md-footer__link md-footer__link--prev" aria-label="Previous: recap.analyzers" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              recap.analyzers
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../recap.catalogs/" class="md-footer__link md-footer__link--next" aria-label="Next: recap.catalogs" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              recap.catalogs
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
