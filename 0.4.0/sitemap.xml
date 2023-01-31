@@ -2,87 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.recap.cloud/0.4.0/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/analyzers/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/browsers/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/catalogs/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.recap.cloud/0.4.0/commands/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <loc>https://docs.recap.cloud/0.4.0/cli/</loc>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/configuration/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/crawler/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/logging/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/plugins/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/quickstart/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/server/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/api-ref/recap.analyzers/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/api-ref/recap.browsers/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/api-ref/recap.catalogs/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/api-ref/recap.crawler/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/api-ref/recap.paths/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.recap.cloud/0.4.0/api-ref/recap.routers/</loc>
-         <lastmod>2023-01-30</lastmod>
+         <lastmod>2023-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

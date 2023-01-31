@@ -12,14 +12,14 @@
         <meta name="author" content="Chris Riccomini">
       
       
-        <link rel="canonical" href="https://docs.recap.cloud/0.4.0/commands/">
+        <link rel="canonical" href="https://docs.recap.cloud/0.4.0/cli/">
       
       <link rel="icon" href="../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Commands - Recap</title>
+        <title>Recap CLI - Recap</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#catalog" class="md-skip">
+        <a href="#recap-cli" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Commands
+              Recap CLI
             
           </span>
         </div>
@@ -263,24 +263,143 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        Quickstart
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_2">
-          API
+        <label class="md-nav__link" for="__nav_3">
+          Concepts
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="API" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+      <nav class="md-nav" aria-label="Concepts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          API
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crawler/" class="md-nav__link">
+        Crawler
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../browsers/" class="md-nav__link">
+        Browsers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analyzers/" class="md-nav__link">
+        Analyzers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../catalogs/" class="md-nav__link">
+        Catalogs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        Plugins
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Python API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python API
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -382,8 +501,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../quickstart/" class="md-nav__link">
-        Quickstart
+      <a href="../server/" class="md-nav__link">
+        REST API
       </a>
     </li>
   
@@ -403,14 +522,16 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Commands
+          Recap CLI
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Commands
+        Recap CLI
       </a>
       
         
@@ -418,6 +539,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -427,16 +550,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#catalog" class="md-nav__link">
-    Catalog
+  <a href="#recap" class="md-nav__link">
+    recap
   </a>
   
-    <nav class="md-nav" aria-label="Catalog">
+    <nav class="md-nav" aria-label="recap">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#catalog" class="md-nav__link">
+    catalog
+  </a>
+  
+    <nav class="md-nav" aria-label="catalog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read" class="md-nav__link">
+    read
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#search" class="md-nav__link">
-    Search
+    search
   </a>
   
 </li>
@@ -445,25 +590,53 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#crawl" class="md-nav__link">
-    Crawl
+    crawl
   </a>
   
-    <nav class="md-nav" aria-label="Crawl">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="plugins">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#excludes" class="md-nav__link">
-    Excludes
+  <a href="#analyzers" class="md-nav__link">
+    analyzers
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#filters" class="md-nav__link">
-    Filters
+  <a href="#browsers" class="md-nav__link">
+    browsers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#catalogs" class="md-nav__link">
+    catalogs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routers" class="md-nav__link">
+    routers
   </a>
   
 </li>
@@ -472,18 +645,16 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#plugins" class="md-nav__link">
-    Plugins
+        
+          <li class="md-nav__item">
+  <a href="#serve" class="md-nav__link">
+    serve
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#serve" class="md-nav__link">
-    Serve
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -502,78 +673,29 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../crawler/" class="md-nav__link">
-        Crawler
-      </a>
-    </li>
-  
-
     
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
       
       
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../browsers/" class="md-nav__link">
-        Browsers
-      </a>
-    </li>
-  
-
-    
       
+        <label class="md-nav__link" for="__nav_7">
+          Operations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../analyzers/" class="md-nav__link">
-        Analyzers
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../catalogs/" class="md-nav__link">
-        Catalogs
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../server/" class="md-nav__link">
-        Server
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
+      <nav class="md-nav" aria-label="Operations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Operations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
   
   
   
@@ -584,11 +706,10 @@
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
@@ -599,18 +720,10 @@
     </li>
   
 
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../plugins/" class="md-nav__link">
-        Plugins
-      </a>
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -632,6 +745,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -640,16 +755,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#catalog" class="md-nav__link">
-    Catalog
+  <a href="#recap" class="md-nav__link">
+    recap
   </a>
   
-    <nav class="md-nav" aria-label="Catalog">
+    <nav class="md-nav" aria-label="recap">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#catalog" class="md-nav__link">
+    catalog
+  </a>
+  
+    <nav class="md-nav" aria-label="catalog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read" class="md-nav__link">
+    read
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#search" class="md-nav__link">
-    Search
+    search
   </a>
   
 </li>
@@ -658,25 +795,53 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#crawl" class="md-nav__link">
-    Crawl
+    crawl
   </a>
   
-    <nav class="md-nav" aria-label="Crawl">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="plugins">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#excludes" class="md-nav__link">
-    Excludes
+  <a href="#analyzers" class="md-nav__link">
+    analyzers
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#filters" class="md-nav__link">
-    Filters
+  <a href="#browsers" class="md-nav__link">
+    browsers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#catalogs" class="md-nav__link">
+    catalogs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routers" class="md-nav__link">
+    routers
   </a>
   
 </li>
@@ -685,18 +850,16 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#plugins" class="md-nav__link">
-    Plugins
+        
+          <li class="md-nav__item">
+  <a href="#serve" class="md-nav__link">
+    serve
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#serve" class="md-nav__link">
-    Serve
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -714,76 +877,142 @@
                 
                   
 
-  <a href="https://github.com/recap-cloud/recap/tree/main/docs/commands.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/recap-cloud/recap/tree/main/docs/cli.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>Commands</h1>
-
-<p>Recap ships with several standard command plugins:</p>
-<ul>
-<li><code>recap crawl</code></li>
-<li><code>recap plugins</code></li>
-<li><code>recap serve</code></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can see all available commands by running <code>recap --help</code> or <code>recap plugins commands</code>.</p>
-</div>
-<h2 id="catalog">Catalog<a class="headerlink" href="#catalog" title="Permanent link">&para;</a></h2>
-<p>Recap's <code>recap catalog</code> command reads metadata Recap's data catalog. List the catalog's directory structure with <code>recap list</code>, read metadata from a directory with <code>recap read</code>, and search with <code>recap search</code>.</p>
-<h3 id="search">Search<a class="headerlink" href="#search" title="Permanent link">&para;</a></h3>
-<p>Recap's search syntax depends on the <a href="../catalogs/">Catalog</a> plugin that's used. As mentioned in the <a href="../quickstart/">Quickstart</a>, Recap stores its metadata in <a href="https://www.sqlite.org/">SQLite</a> by default. You can use SQLite's <a href="https://www.sqlite.org/json1.html#the_json_extract_function">json_extract syntax</a> to search the catalog:</p>
-<div class="codehilite"><pre><span></span><code>recap catalog search &quot;json_extract(metadata, &#39;$.\&quot;db.location\&quot;.table&#39;) = &#39;some_table&#39;&quot;
+<h1 id="recap-cli">Recap CLI<a class="headerlink" href="#recap-cli" title="Permanent link">&para;</a></h1>
+<p>Execute Recap's CLI using the <code>recap</code> command. Recap's CLI is pluggable, so the <code>recap</code> command will have subcommands for each plugin you've installed. By default, Recap ships with the following command plugins.</p>
+<h2 id="recap">recap<a class="headerlink" href="#recap" title="Permanent link">&para;</a></h2>
+<p>Recap's command line interface.</p>
+<p>Recap's CLI is completely pluggable. See the commands below for more
+information on individual command plugins.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<p>Options:</p>
+<div class="highlight"><pre><span></span><code>  --install-completion  Install completion for the current shell.
+  --show-completion     Show completion for the current shell, to copy it or
+                        customize the installation.
+</code></pre></div>
+<h3 id="catalog">catalog<a class="headerlink" href="#catalog" title="Permanent link">&para;</a></h3>
+<p>Read and search the data catalog.</p>
+<p>Recap's <code>recap catalog</code> command reads metadata Recap's data catalog. List
+the catalog's directory structure with <code>recap list</code>, read metadata from a
+directory with <code>recap read</code>, and search with <code>recap search</code>.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> catalog [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<h4 id="list">list<a class="headerlink" href="#list" title="Permanent link">&para;</a></h4>
+<p>Lists a data catalog directory's children.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> catalog list [OPTIONS] [PATH]
+</code></pre></div>
+<p>Options:</p>
+<div class="highlight"><pre><span></span><code>  [PATH]                          [default: /]
+  -t, --time [%Y-%m-%d|%Y-%m-%dT%H:%M:%S|%Y-%m-%d %H:%M:%S]
+                                  List directory children for a path.
+</code></pre></div>
+<h4 id="read">read<a class="headerlink" href="#read" title="Permanent link">&para;</a></h4>
+<p>Prints metadata from a path in the data catalog.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> catalog read [OPTIONS] PATH
+</code></pre></div>
+<p>Options:</p>
+<div class="highlight"><pre><span></span><code>  PATH                            [required]
+  -t, --time [%Y-%m-%d|%Y-%m-%dT%H:%M:%S|%Y-%m-%d %H:%M:%S]
+                                  View metadata as of a point in time.
+</code></pre></div>
+<h4 id="search">search<a class="headerlink" href="#search" title="Permanent link">&para;</a></h4>
+<p>Searches the data catalog.</p>
+<p>Recap's search syntax depends on the catalog plugin that's used. Recap
+stores its metadata in SQLite by default. You can use SQLite's json_extract
+syntax to search the catalog:</p>
+<div class="codehilite"><pre><span></span><code>recap catalog search &quot;json_extract(metadata, &#39;$.&quot;db.location&quot;.table&#39;) = &#39;some_table&#39;&quot;
 </code></pre></div>
 
-<p>The database file defaults to <code>~/.recap/catalog/recap.db</code>, if you wish to open a SQLite client directly.</p>
-<h2 id="crawl">Crawl<a class="headerlink" href="#crawl" title="Permanent link">&para;</a></h2>
-<p>Use <code>recap crawl</code> to crawl infrastructure and store its metadata in Recap's catalog. The <code>crawl</code> command takes an optional <code>URL</code> parameter. If specified, the URL will be crawled. If not specified, all <code>crawlers</code> defined in your <code>settings.toml</code> file will be crawled (see <a href="../configuration/">Configuration</a> for more information).</p>
-<h3 id="excludes">Excludes<a class="headerlink" href="#excludes" title="Permanent link">&para;</a></h3>
-<p>You might not want to use all analyzers when crawling infrastrucutre. Some analyzers (particularly the <code>profile</code> analyzer) are costly and slow to run. To exclude an analyzer, use <code>--exclude</code> with <code>recap crawl</code>. For example:</p>
-<div class="codehilite"><pre><span></span><code>recap crawl postgresql://username@localhost/some_db --exclude=&#39;sqlalchemy.profile&#39;
+<p>The database file defaults to <code>~/.recap/catalog/recap.db</code>, if you wish to
+open a SQLite client directly.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> catalog search [OPTIONS] QUERY
 </code></pre></div>
-
-<h3 id="filters">Filters<a class="headerlink" href="#filters" title="Permanent link">&para;</a></h3>
-<p>Recap crawls all paths by default, which can be slow. You might wish to only crawl some subset of data. You can use <code>--filter</code> to control what data the crawler looks at. Recap uses Unix filename pattern matching as defined in Python's <a href="https://docs.python.org/3/library/fnmatch.html">fnmatch</a> module.</p>
-<p>To crawl only a specific table, you would use this syntax:</p>
-<div class="codehilite"><pre><span></span><code>recap crawl postgresql://username@localhost/some_db --filter=&#39;/**/tables/some_table&#39;
+<p>Options:</p>
+<div class="highlight"><pre><span></span><code>  QUERY                           [required]
+  -t, --time [%Y-%m-%d|%Y-%m-%dT%H:%M:%S|%Y-%m-%d %H:%M:%S]
+                                  View metadata as of a point in time.
 </code></pre></div>
-
-<h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h2>
-<p>The <code>recap plugins</code> command lists the Recap plugins that you have installed in your environment.</p>
-<p>To list the available analyzers, run this command:</p>
-<div class="highlight"><pre><span></span><code>recap plugins analyzers
-[
-  &quot;db.location&quot;,
-  &quot;sqlalchemy.access&quot;,
-  &quot;sqlalchemy.columns&quot;,
-  &quot;sqlalchemy.comment&quot;,
-  &quot;sqlalchemy.foreign_keys&quot;,
-  &quot;sqlalchemy.indexes&quot;,
-  &quot;sqlalchemy.primary_key&quot;,
-  &quot;sqlalchemy.profile&quot;,
-  &quot;sqlalchemy.view_definition&quot;
-]
+<h3 id="crawl">crawl<a class="headerlink" href="#crawl" title="Permanent link">&para;</a></h3>
+<p>Crawls infrastructure and writes metadata to the data catalog.</p>
+<p>Use <code>recap crawl</code> to crawl infrastructure and store its metadata in Recap's
+catalog. The <code>crawl</code> command takes an optional <code>URL</code> parameter. If
+specified, the URL will be crawled. If not specified, all <code>crawlers</code>
+defined in your <code>settings.toml</code> file will be crawled.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> crawl [OPTIONS] [URL]
 </code></pre></div>
-<p>See <code>recap plugins --help</code> for more.</p>
-<h2 id="serve">Serve<a class="headerlink" href="#serve" title="Permanent link">&para;</a></h2>
-<p>You might wish to centralize your Recap data catalog in one place, and have all users read from the same location. Recap ships with an HTTP/JSON server for this use case. Start a Recap server on a single host using <code>recap serve</code>. Clients can then configure their <a href="../catalogs/#recap-catalog">Recap catalog</a> in <code>settings.toml</code> to point to the server location:</p>
+<p>Options:</p>
+<div class="highlight"><pre><span></span><code>  [URL]                         URL to crawl. If unset, all URLs in
+                                settings.toml are used.
+  -e, --exclude TEXT            Skip the specified analyzer when crawling.
+  -f, --filter TEXT             Crawl only certain paths. Format is Unix
+                                shell-style wildcards.
+  --recursive / --no-recursive  Crawl all subdirectories recursively.
+                                [default: recursive]
+</code></pre></div>
+<h3 id="plugins">plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h3>
+<p>Lists available plugins.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> plugins [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<h4 id="analyzers">analyzers<a class="headerlink" href="#analyzers" title="Permanent link">&para;</a></h4>
+<p>Lists all analyzer plugins.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> plugins analyzers [OPTIONS]
+</code></pre></div>
+<h4 id="browsers">browsers<a class="headerlink" href="#browsers" title="Permanent link">&para;</a></h4>
+<p>Lists all browser plugins.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> plugins browsers [OPTIONS]
+</code></pre></div>
+<h4 id="catalogs">catalogs<a class="headerlink" href="#catalogs" title="Permanent link">&para;</a></h4>
+<p>Lists all catalog plugins.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> plugins catalogs [OPTIONS]
+</code></pre></div>
+<h4 id="commands">commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h4>
+<p>Lists all command plugins.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> plugins commands [OPTIONS]
+</code></pre></div>
+<h4 id="routers">routers<a class="headerlink" href="#routers" title="Permanent link">&para;</a></h4>
+<p>Lists all router plugins.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> plugins routers [OPTIONS]
+</code></pre></div>
+<h3 id="serve">serve<a class="headerlink" href="#serve" title="Permanent link">&para;</a></h3>
+<p>Starts Recap's HTTP/JSON API server.</p>
+<p>You might wish to centralize your Recap data catalog in one place, and have
+all users read from the same location. Recap ships with an HTTP/JSON server
+for this use case. Start a Recap server on a single host using
+<code>recap serve</code>.</p>
+<p>Clients can then configure their Recap catalog in <code>settings.toml</code> to point
+to the server location:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[catalog]</span><span class="w"></span>
 <span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;recap&quot;</span><span class="w"></span>
 <span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;http://192.168.0.1:8000&quot;</span><span class="w"></span>
 </code></pre></div>
-<p>See the <a href="../server/">server</a> documentation for more information.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code> serve [OPTIONS]
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2023-01-25
+      2023-01-30
     
   </small>
 </div>
@@ -807,7 +1036,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../quickstart/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quickstart" rel="prev">
+        <a href="../server/" class="md-footer__link md-footer__link--prev" aria-label="Previous: REST API" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -816,20 +1045,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Quickstart
+              REST API
             </div>
           </div>
         </a>
       
       
         
-        <a href="../crawler/" class="md-footer__link md-footer__link--next" aria-label="Next: Crawler" rel="next">
+        <a href="../configuration/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuration" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Crawler
+              Configuration
             </div>
           </div>
           <div class="md-footer__button md-icon">
