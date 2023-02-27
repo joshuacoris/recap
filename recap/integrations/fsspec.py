@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 from frictionless import Resource, describe  # type: ignore
 from fsspec import AbstractFileSystem
 
-from recap.metadata import Field, Schema
+from recap.metadata import Field, Schema, Type
 from recap.registry import registry
 
 
@@ -79,15 +79,36 @@ def schema(
             resource = describe(path=url, format="ndjson")
 
     if isinstance(resource, Resource):
-        return Schema(
-            fields=[
+        fields = []
+        for frictionless_field in resource.schema.fields:
+            match frictionless_field.type:
+                case "string":
+                    type_ = Type.STRING
+                case "number":
+                    type_ = Type.FLOAT64
+                case "integer":
+                    type_ = Type.INT64
+                case "boolean":
+                    type_ = Type.BOOLEAN
+                # TODO Should handle types (object, array) here.
+                case _:
+                    raise ValueError(
+                        "Can't convert to Recap type from frictionless "
+                        f"type={frictionless_field.type}"
+                    )
+            schema = Schema(
+                type=type_,
+                doc=frictionless_field.description,
+            )
+            fields.append(
                 Field(
-                    name=field.name,
-                    type=field.type,
+                    name=frictionless_field.name,
+                    schema=schema,
                 )
-                for field in resource.schema.fields  # pyright: ignore [reportOptionalMemberAccess]
-                if field.name
-            ],
+            )
+        return Schema(
+            type=Type.STRUCT,
+            fields=fields,
         )
 
     raise ValueError(f"Unsupported url={url}")
