@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 from frictionless import Resource, describe  # type: ignore
 from fsspec import AbstractFileSystem
 
-from recap.metadata import Field, Schema, Type
+from recap.metadata import Schema
 from recap.registry import registry
 from recap.schema.frictionless import to_recap_schema
 
