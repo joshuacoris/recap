@@ -102,6 +102,7 @@ class Schema(BaseModel):
             indent=2,
         )
 
+
 class Type(str, Enum):
     INT8 = 'INT8'
     INT16 = 'INT16'

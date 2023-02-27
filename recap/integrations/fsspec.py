@@ -6,6 +6,7 @@ from fsspec import AbstractFileSystem
 
 from recap.metadata import Field, Schema, Type
 from recap.registry import registry
+from recap.schema.frictionless import to_recap_schema
 
 
 @registry.relationship(
@@ -79,36 +80,6 @@ def schema(
             resource = describe(path=url, format="ndjson")
 
     if isinstance(resource, Resource):
-        fields = []
-        for frictionless_field in resource.schema.fields:
-            match frictionless_field.type:
-                case "string":
-                    type_ = Type.STRING
-                case "number":
-                    type_ = Type.FLOAT64
-                case "integer":
-                    type_ = Type.INT64
-                case "boolean":
-                    type_ = Type.BOOLEAN
-                # TODO Should handle types (object, array) here.
-                case _:
-                    raise ValueError(
-                        "Can't convert to Recap type from frictionless "
-                        f"type={frictionless_field.type}"
-                    )
-            schema = Schema(
-                type=type_,
-                doc=frictionless_field.description,
-            )
-            fields.append(
-                Field(
-                    name=frictionless_field.name,
-                    schema=schema,
-                )
-            )
-        return Schema(
-            type=Type.STRUCT,
-            fields=fields,
-        )
+        return to_recap_schema(resource.schema)
 
     raise ValueError(f"Unsupported url={url}")
