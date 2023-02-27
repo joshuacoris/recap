@@ -1,6 +1,5 @@
 from google.cloud.bigquery import SchemaField
 from recap.metadata import Field, Schema, Type
-from typing import Any
 
 
 def to_recap_schema(columns: list[SchemaField]) -> Schema:
