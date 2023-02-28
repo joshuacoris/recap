@@ -1,40 +1,45 @@
 from sqlalchemy import types
-from recap.metadata import Field, Schema, Type
+from recap import metadata
 from typing import Any
 
 
-def to_recap_schema(columns: list[dict[str, Any]]) -> Schema:
+def to_recap_schema(columns: list[dict[str, Any]]) -> metadata.StructSchema:
     fields = []
     for column in columns:
         match column["type"]:
             case types.SmallInteger():
-                type_ = Type.INT16
+                SchemaClass = metadata.Int16Schema
             case types.Integer():
-                type_ = Type.INT32
+                SchemaClass = metadata.Int32Schema
             case types.BigInteger():
-                type_ = Type.INT64
+                SchemaClass = metadata.Int64Schema
             case types.Boolean():
-                type_ = Type.BOOLEAN
+                SchemaClass = metadata.BooleanSchema
             case types.Float():
-                type_ = Type.FLOAT32
+                SchemaClass = metadata.Float32Schema
             case types.LargeBinary() | types._Binary():
-                type_ = Type.BYTES
+                SchemaClass = metadata.BytesSchema
             case types.Numeric():
-                type_ = Type.FLOAT64
-            case types.String() | types.Text() | types.Unicode() | types.UnicodeText():
-                type_ = Type.STRING
+                SchemaClass = metadata.DecimalSchema
+            case types.String() | types.Text() | types.Unicode() | types.UnicodeText() | types.JSON():
+                SchemaClass = metadata.StringSchema
+            case types.TIMESTAMP() | types.DATETIME():
+                SchemaClass = metadata.TimestampSchema
+            case types.TIME():
+                SchemaClass = metadata.TimeSchema
+            case types.DATE():
+                SchemaClass = metadata.DateSchema
             case _:
                 raise ValueError(
                     "Can't convert to Recap type from frictionless "
                     f"type={type(column['type'])}"
                 )
-        fields.append(Field(
+        fields.append(metadata.Field(
             name=column["name"],
-            schema=Schema(
-                type=type_,
+            schema=SchemaClass(
                 default=column["default"],
                 optional=column["nullable"],
                 doc=column.get("comment"),
             )
         ))
-    return Schema(type=Type.STRUCT, fields=fields)
+    return metadata.StructSchema(fields=fields, optional=False)

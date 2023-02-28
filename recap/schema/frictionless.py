@@ -1,19 +1,21 @@
 from frictionless.schema import Schema as FrictionlessSchema
-from recap.metadata import Field, Schema, Type
+from recap import metadata
 
 
-def to_recap_schema(frictionless_schema: FrictionlessSchema) -> Schema:
+def to_recap_schema(
+    frictionless_schema: FrictionlessSchema,
+) -> metadata.StructSchema:
     fields = []
     for frictionless_field in frictionless_schema.fields:
         match frictionless_field.type:
             case "string":
-                type_ = Type.STRING
+                SchemaClass = metadata.StringSchema
             case "number":
-                type_ = Type.FLOAT64
+                SchemaClass = metadata.Float64Schema
             case "integer":
-                type_ = Type.INT64
+                SchemaClass = metadata.Int64Schema
             case "boolean":
-                type_ = Type.BOOLEAN
+                SchemaClass = metadata.BooleanSchema
             # TODO Should handle types (object, array) here.
             case _:
                 raise ValueError(
@@ -21,15 +23,12 @@ def to_recap_schema(frictionless_schema: FrictionlessSchema) -> Schema:
                     f"type={frictionless_field.type}"
                 )
         fields.append(
-            Field(
+            metadata.Field(
                 name=frictionless_field.name,
-                schema=Schema(
-                    type=type_,
+                schema=SchemaClass(
                     doc=frictionless_field.description,
+                    optional=frictionless_field.required,
                 ),
             )
         )
-    return Schema(
-        type=Type.STRUCT,
-        fields=fields,
-    )
+    return metadata.StructSchema(fields=fields, optional=False)

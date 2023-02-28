@@ -10,9 +10,7 @@ from __future__ import annotations
 
 from pydantic import BaseModel, Field as PydanticField
 
-from enum import Enum
-
-from typing import Any
+from typing import Any, ClassVar
 
 
 class Field(BaseModel):
@@ -32,7 +30,9 @@ class Schema(BaseModel):
     Recap's representation of a Schema.
     """
 
-    type_: Type = PydanticField(alias="type")
+    # TODO This should be ClassVar, but Pydantic doesn't seem to want to
+    # seralize ClassVars with Python 3.10.
+    type_: str = PydanticField(alias="type", const=True)
     """
     The schema's type.
     """
@@ -67,6 +67,79 @@ class Schema(BaseModel):
     A map of optional schema parameters.
     """
 
+    def is_primitive(self) -> bool:
+        match self.type_:
+            case (
+                "STRING"
+                | "INT8"
+                | "INT16"
+                | "INT32"
+                | "INT64"
+                | "FLOAT32"
+                | "FLOAT64"
+                | "BOOLEAN"
+                | "BYTES"
+            ):
+                return True
+        return False
+
+    def __str__(self) -> str:
+        return self.json(
+            by_alias=True,
+            exclude_none=True,
+            indent=2,
+        )
+
+
+class Int8Schema(Schema):
+    type_: str = PydanticField(default="INT8", alias="type", const=True)
+
+
+class Int16Schema(Schema):
+    type_: str = PydanticField(default="INT16", alias="type", const=True)
+
+
+class Int32Schema(Schema):
+    type_: str = PydanticField(default="INT32", alias="type", const=True)
+
+
+class Int64Schema(Schema):
+    type_: str = PydanticField(default="INT64", alias="type", const=True)
+
+
+class Float32Schema(Schema):
+    type_: str = PydanticField(default="FLOAT32", alias="type", const=True)
+
+
+class Float64Schema(Schema):
+    type_: str = PydanticField(default="FLOAT64", alias="type", const=True)
+
+
+class BooleanSchema(Schema):
+    type_: str = PydanticField(default="BOOLEAN", alias="type", const=True)
+
+
+class StringSchema(Schema):
+    type_: str = PydanticField(default="STRING", alias="type", const=True)
+
+
+class BytesSchema(Schema):
+    type_: str = PydanticField(default="BYTES", alias="type", const=True)
+
+
+class ArraySchema(Schema):
+    type_: str = PydanticField(default="ARRAY", alias="type", const=True)
+
+    value_schema: Schema | None = None
+    """
+    Value schema for this map or array schema. Throws a ValueError if schema is
+    not a map or array.
+    """
+
+
+class MapSchema(Schema):
+    type_: str = PydanticField(default="MAP", alias="type", const=True)
+
     key_schema: Schema | None = None
     """
     Key schema for this map schema. Throws a ValueError if schema is not a map.
@@ -78,60 +151,35 @@ class Schema(BaseModel):
     not a map or array.
     """
 
+
+class StructSchema(Schema):
+    type_: str = PydanticField(default="STRUCT", alias="type", const=True)
+
     fields: list[Field] | None = None
     """
-    List of Fields for this Schema. Throws a ValueError if schema is not a
-    Type.STRUCT.
+    List of fields for this struct.
     """
 
     def field(self, name: str) -> Field | None:
-        if self.type_ == Type.STRUCT:
-            for field in self.fields or []:
-                if field.name == name:
-                    return field
-        raise ValueError(
-            "`field` only supported for STRUCT schemas, but type={self.type}"
-        )
-
-    def __str__(self) -> str:
-        return self.json(
-            by_alias=True,
-            exclude_defaults=True,
-            exclude_none=True,
-            exclude_unset=True,
-            indent=2,
-        )
+        for field in self.fields or []:
+            if field.name == name:
+                return field
 
 
-class Type(str, Enum):
-    INT8 = 'INT8'
-    INT16 = 'INT16'
-    INT32 = 'INT32'
-    INT64 = 'INT64'
-    FLOAT32 = 'FLOAT32'
-    FLOAT64 = 'FLOAT64'
-    BOOLEAN = 'BOOLEAN'
-    STRING = 'STRING'
-    BYTES = 'BYTES'
-    ARRAY = 'ARRAY'
-    MAP = 'MAP'
-    STRUCT = 'STRUCT'
+class DateSchema(Schema):
+    type_: str = PydanticField(default="DATE", alias="type", const=True)
 
-    def is_primitive(self) -> bool:
-        match self:
-            case (
-                Type.INT8
-                | Type.INT16
-                | Type.INT32
-                | Type.INT64
-                | Type.FLOAT32
-                | Type.FLOAT64
-                | Type.BOOLEAN
-                | Type.STRING
-                | Type.BYTES
-            ):
-                return True
-        return False
+
+class DecimalSchema(Schema):
+    type_: str = PydanticField(default="DECIMAL", alias="type", const=True)
+
+
+class TimeSchema(Schema):
+    type_: str = PydanticField(default="TIME", alias="type", const=True)
+
+
+class TimestampSchema(Schema):
+    type_: str = PydanticField(default="TIMESTAMP", alias="type", const=True)
 
 
 # Update forward refs since Schema references Field, which references Schema.

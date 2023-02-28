@@ -1,33 +1,40 @@
 from google.cloud.bigquery import SchemaField
-from recap.metadata import Field, Schema, Type
+from recap import metadata
 
 
-def to_recap_schema(columns: list[SchemaField]) -> Schema:
+def to_recap_schema(columns: list[SchemaField]) -> metadata.StructSchema:
     fields = []
     for column in columns:
         match column.field_type:
             case "STRING":
-                type_ = Type.STRING
+                SchemaClass = metadata.StringSchema
             case "BYTES":
-                type_ = Type.BYTES
+                SchemaClass = metadata.BytesSchema
             case "INTEGER" | "INT64":
-                type_ = Type.INT64
+                SchemaClass = metadata.Int64Schema
             case "FLOAT" | "FLOAT64":
-                type_ = Type.FLOAT64
+                SchemaClass = metadata.Float64Schema
             case "BOOLEAN" | "BOOL":
-                type_ = Type.BOOLEAN
+                SchemaClass = metadata.BooleanSchema
+            case "TIMESTAMP":
+                SchemaClass = metadata.TimestampSchema
+            case "TIME":
+                SchemaClass = metadata.TimeSchema
+            case "DATE":
+                SchemaClass = metadata.DateSchema
+            case "NUMERIC" | "BIGNUMERIC":
+                SchemaClass = metadata.DecimalSchema
             case _:
                 raise ValueError(
                     "Can't convert to Recap type from bigquery "
                     f"type={column.field_type}"
                 )
-        fields.append(Field(
+        fields.append(metadata.Field(
             name=column.name,
-            schema=Schema(
-                type=type_,
+            schema=SchemaClass(
                 default=column.default_value_expression,
                 optional=column.is_nullable,
                 doc=column.description,
             )
         ))
-    return Schema(type=Type.STRUCT, fields=fields)
+    return metadata.StructSchema(fields=fields, optional=False)
