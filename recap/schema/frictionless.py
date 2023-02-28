@@ -1,4 +1,5 @@
 from frictionless.schema import Schema as FrictionlessSchema
+
 from recap import metadata
 
 

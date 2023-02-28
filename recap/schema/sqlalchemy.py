@@ -1,6 +1,8 @@
-from sqlalchemy import types
-from recap import metadata
 from typing import Any
+
+from sqlalchemy import types
+
+from recap import metadata
 
 
 def to_recap_schema(columns: list[dict[str, Any]]) -> metadata.StructSchema:
@@ -34,12 +36,14 @@ def to_recap_schema(columns: list[dict[str, Any]]) -> metadata.StructSchema:
                     "Can't convert to Recap type from frictionless "
                     f"type={type(column['type'])}"
                 )
-        fields.append(metadata.Field(
-            name=column["name"],
-            schema=SchemaClass(
-                default=column["default"],
-                optional=column["nullable"],
-                doc=column.get("comment"),
+        fields.append(
+            metadata.Field(
+                name=column["name"],
+                schema=SchemaClass(
+                    default=column["default"],
+                    optional=column["nullable"],
+                    doc=column.get("comment"),
+                ),
             )
-        ))
+        )
     return metadata.StructSchema(fields=fields, optional=False)

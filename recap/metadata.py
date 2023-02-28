@@ -8,9 +8,10 @@ accounts and jobs, are represented by URLs, but have no associated metadata.
 
 from __future__ import annotations
 
-from pydantic import BaseModel, Field as PydanticField
-
 from typing import Any, ClassVar
+
+from pydantic import BaseModel
+from pydantic import Field as PydanticField
 
 
 class Field(BaseModel):

@@ -1,4 +1,5 @@
 from google.cloud.bigquery import SchemaField
+
 from recap import metadata
 
 
@@ -29,12 +30,14 @@ def to_recap_schema(columns: list[SchemaField]) -> metadata.StructSchema:
                     "Can't convert to Recap type from bigquery "
                     f"type={column.field_type}"
                 )
-        fields.append(metadata.Field(
-            name=column.name,
-            schema=SchemaClass(
-                default=column.default_value_expression,
-                optional=column.is_nullable,
-                doc=column.description,
+        fields.append(
+            metadata.Field(
+                name=column.name,
+                schema=SchemaClass(
+                    default=column.default_value_expression,
+                    optional=column.is_nullable,
+                    doc=column.description,
+                ),
             )
-        ))
+        )
     return metadata.StructSchema(fields=fields, optional=False)
