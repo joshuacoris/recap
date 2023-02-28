@@ -3,10 +3,13 @@ from urllib.parse import urlparse
 
 from frictionless import Resource, describe  # type: ignore
 from fsspec import AbstractFileSystem
+from genson import SchemaBuilder
+from json import loads
 
 from recap.metadata import Schema
 from recap.registry import registry
-from recap.schema.frictionless import to_recap_schema
+from recap.schema import frictionless
+from recap.schema import json_schema
 
 
 @registry.relationship(
@@ -48,10 +51,11 @@ def ls(
     ]
 
 
-@registry.metadata("s3://{bucket}/{path:path}", include_url=True)
-@registry.metadata("file:///{path:path}", include_url=True)
-@registry.metadata("/{path:path}", include_url=True)
+@registry.metadata("s3://{bucket}/{path:path}", include_fs=True, include_url=True)
+@registry.metadata("file:///{path:path}", include_fs=True, include_url=True)
+@registry.metadata("/{path:path}", include_fs=True, include_url=True)
 def schema(
+    fs: AbstractFileSystem,
     url: str,
     path: str,
     **_,
@@ -60,7 +64,8 @@ def schema(
     Fetch a Recap schema for a URL. This method supports S3 and local
     filesystems, and CSV, TSV, Parquet, and JSON filetypes.
 
-    Recap uses `frictionless` for schema inferrence.
+    Recap uses `frictionless` for CSV and TSV schema inference. Genson is used
+    for JSON file schema inference.
 
     :param url: The fully matched URL when using the function registry.
     :param path: Path to a CSV, TSV, Parquet, or JSON file.
@@ -77,9 +82,13 @@ def schema(
         case (".csv" | ".tsv" | ".parquet"):
             resource = describe(url)
         case (".json" | ".ndjson" | ".jsonl"):
-            resource = describe(path=url, format="ndjson")
+            builder = SchemaBuilder()
+            with fs.open(url) as f:
+                for line in f.readlines():
+                    builder.add_object(loads(line))
+            return json_schema.from_json_schema(builder.to_schema())
 
     if isinstance(resource, Resource):
-        return to_recap_schema(resource.schema)
+        return frictionless.to_recap_schema(resource.schema)
 
     raise ValueError(f"Unsupported url={url}")
